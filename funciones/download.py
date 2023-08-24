@@ -1,6 +1,7 @@
 import pytube
 from pytube import YouTube
 import config as cfg
+import os
 from os import system
 import pathlib
 from pydub import AudioSegment
@@ -13,14 +14,14 @@ def Download(link):
     yt = YT(link)
     try:
         Descarga = yt.streams.filter(only_audio=True).first().download(Direction(yt.author))
-        song = AudioSegment.from_mp3(Descarga)
+        song = AudioSegment.from_file(Descarga)
         song.export(formatAudioClip(Descarga), format="mp3")
         #audioclip = AudioFileClip(Descarga)
         #print(audioclip.filename)
         #print('-')
         #print(formatAudioClip(audioclip.filename))
         #audioclip.write_audiofile(formatAudioClip(audioclip.filename))
-        #os.remove(audioclip.filename)
+        os.remove(Descarga)
     except pytube.exceptions.VideoUnavailable:
         pass
 def formatAudioClip(string):
