@@ -13,8 +13,7 @@ class SAM:
         if(os.name =='nt'):
             system('cls')
         elif(os.name =='posix'):
-            pass
-            #system('clear')
+            system('clear')
     def playSound(self,sound_file):
         pygame.mixer.music.load(sound_file)
         pygame.mixer.music.play()
@@ -57,7 +56,7 @@ class SAM:
         self.selectionSong(band,songs)
     def sound(self,path):
         try:
-            system('mpv '+path)
+            system('mpv '+path.replace(' ','\ '))
         except:
             pass
     def selectionSong(self,band,songs):
