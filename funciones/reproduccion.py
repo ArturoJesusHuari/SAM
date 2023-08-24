@@ -64,7 +64,7 @@ class SAM:
         if(selection=='back'):
             self.selectionBand()
         try:
-            self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)]+'.mp3')
+            self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
             #self.playSound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
             #self.control(songs[int(selection)])
             self.songsFrom(band)
