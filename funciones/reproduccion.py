@@ -30,7 +30,7 @@ class SAM:
         self.viewBands()
         inp = input('>>')
         if(inp == 'exit'):
-            self.quitPygame()
+            #self.quitPygame()
             exit()
         try:
             self.selectionBand(int(inp))
