@@ -56,7 +56,7 @@ class SAM:
         self.selectionSong(band,songs)
     def sound(self,path):
         try:
-            system(path)
+            system('mpv '+path)
         except:
             pass
     def selectionSong(self,band,songs):
