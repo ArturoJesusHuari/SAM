@@ -7,7 +7,7 @@ from .download import *
 class SAM:
     #Sistema de archivos musicales
     def __init__(self):
-        pygame.mixer.init()
+        #pygame.mixer.init()
         self.bands = dict(enumerate(os.listdir(os.getcwd()+'/songs/'),start=1))
     def clear(self):
         if(os.name =='nt'):
@@ -54,13 +54,20 @@ class SAM:
             name, ext = os.path.splitext(songs[key])
             print(key,songs[key].replace('.mp3',''))
         self.selectionSong(band,songs)
+    def sound(self,path):
+        try:
+            system(path)
+        except:
+            pass
     def selectionSong(self,band,songs):
         selection = input('>> ')
         if(selection=='back'):
             self.selectionBand()
         try:
-            self.playSound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
-            self.control(songs[int(selection)])
+            self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
+            #self.playSound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
+            #self.control(songs[int(selection)])
+            self.songsFrom(band)
         except:
             self.songsFrom(band)
     def control(self,name):
