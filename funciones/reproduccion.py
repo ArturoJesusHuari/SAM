@@ -13,7 +13,8 @@ class SAM:
         if(os.name =='nt'):
             system('cls')
         elif(os.name =='posix'):
-            system('clear')
+            pass
+            #system('clear')
     def playSound(self,sound_file):
         pygame.mixer.music.load(sound_file)
         pygame.mixer.music.play()
@@ -64,7 +65,7 @@ class SAM:
         if(selection=='back'):
             self.selectionBand()
         try:
-            self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
+            self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)]+'.mp3')
             #self.playSound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
             #self.control(songs[int(selection)])
             self.songsFrom(band)
