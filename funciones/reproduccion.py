@@ -1,4 +1,4 @@
-import pygame
+#import pygame
 import os
 import sys
 from time import sleep
@@ -15,16 +15,21 @@ class SAM:
         elif(os.name =='posix'):
             system('clear')
     def playSound(self,sound_file):
-        pygame.mixer.music.load(sound_file)
-        pygame.mixer.music.play()
+        #pygame.mixer.music.load(sound_file)
+        #pygame.mixer.music.play()
+        pass
     def pauseSound(self):
-        pygame.mixer.music.pause()
+        #pygame.mixer.music.pause()
+        pass
     def unpauseSound(self):
-        pygame.mixer.music.unpause()
+        #pygame.mixer.music.unpause()
+        pass
     def stopSound(self):
-        pygame.mixer.music.stop()
+        #pygame.mixer.music.stop()
+        pass
     def quitPygame(self):
-        pygame.mixer.quit()
+        #pygame.mixer.quit()
+        pass
     def home(self):
         self.viewBands()
         inp = input('>>')
