@@ -26,7 +26,6 @@ class SAM:
     def quitPygame(self):
         pygame.mixer.quit()
     def home(self):
-        print('SAM')
         self.viewBands()
         inp = input('>>')
         if(inp == 'exit'):
@@ -39,6 +38,7 @@ class SAM:
             self.home()
     def viewBands(self):
         self.clear()
+        print('SAM')
         self.__init__()
         for key in self.bands:
             print(key,self.bands[key])
@@ -62,7 +62,7 @@ class SAM:
     def selectionSong(self,band,songs):
         selection = input('>> ')
         if(selection=='back'):
-            self.selectionBand()
+            self.home()
         try:
             self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
             #self.playSound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
