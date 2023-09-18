@@ -4,6 +4,7 @@ import sys
 from time import sleep
 from os import system, path
 from .download import *
+from colorama import Fore
 class SAM:
     #Sistema de archivos musicales
     def __init__(self):
@@ -25,15 +26,15 @@ class SAM:
             self.home()
     def viewBands(self):
         self.clear()
-        print("""███████╗ █████╗ ███╗   ███╗
+        print(Fore.CYAN+"""███████╗ █████╗ ███╗   ███╗
 ██╔════╝██╔══██╗████╗ ████║
 ███████╗███████║██╔████╔██║
 ╚════██║██╔══██║██║╚██╔╝██║
 ███████║██║  ██║██║ ╚═╝ ██║
-╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝""")
+╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝"""+Fore.RESET)
         self.__init__()
         for key in self.bands:
-            print(key,self.bands[key])
+            print(Fore.GREEN+key,self.bands[key]+Fore.RESET)
     def selectionBand(self,selection):
         try:
             self.songsFrom(self.bands[selection])
@@ -44,7 +45,7 @@ class SAM:
         songs = dict(enumerate(os.listdir(os.getcwd()+'/songs/'+band+'/'),start=1))
         for key in songs:
             name, ext = os.path.splitext(songs[key])
-            print(key,songs[key].replace('.mp3',''))
+            print(Fore.YELLOW+key,songs[key].replace('.mp3','')+Fore.RESET)
         self.selectionSong(band,songs)
     def sound(self,path):
         try:
@@ -56,7 +57,7 @@ class SAM:
         if(selection=='back'):
             self.home()
         elif(selection=='all'):
-            for song in songs:
+            for song in songs.values():
                 print(song)
                 self.sound(os.getcwd()+'/songs/'+band+'/'+song)
             self.songsFrom(band)

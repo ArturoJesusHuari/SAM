@@ -16,15 +16,11 @@ def Download(link):
         Descarga = yt.streams.filter(only_audio=True).first().download(Direction(yt.author))
         song = AudioSegment.from_file(Descarga)
         song.export(formatAudioClip(Descarga), format="mp3")
-        #audioclip = AudioFileClip(Descarga)
-        #print(audioclip.filename)
-        #print('-')
-        #print(formatAudioClip(audioclip.filename))
-        #audioclip.write_audiofile(formatAudioClip(audioclip.filename))
         os.remove(Descarga)
     except pytube.exceptions.VideoUnavailable:
         pass
 def formatAudioClip(string):
+    print(string)
     string = string.replace('.mp4', '.mp3')
     years = [str(num) for num in range(1950,2100)]
     listWords = years + ['(',')'
