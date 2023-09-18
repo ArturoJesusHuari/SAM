@@ -56,9 +56,9 @@ class SAM:
         if(selection=='back'):
             self.home()
         try:
-            for e in range(int(selection),len(songs)+1):
-                print(songs[e])
-                self.sound(os.getcwd()+'/songs/'+band+'/'+songs[e])
+            for e in list([selection]):
+                print(songs[int(e)])
+                self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(e)])
             self.songsFrom(band)
         except:
             self.songsFrom(band)
