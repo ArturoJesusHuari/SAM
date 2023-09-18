@@ -4,7 +4,8 @@ import sys
 from time import sleep
 from os import system, path
 from .download import *
-from colorama import Fore
+from colorama import init, Fore, Back
+init()
 class SAM:
     #Sistema de archivos musicales
     def __init__(self):
