@@ -7,34 +7,16 @@ from .download import *
 class SAM:
     #Sistema de archivos musicales
     def __init__(self):
-        #pygame.mixer.init()
         self.bands = dict(enumerate(os.listdir(os.getcwd()+'/songs/'),start=1))
     def clear(self):
         if(os.name =='nt'):
             system('cls')
         elif(os.name =='posix'):
             system('clear')
-    def playSound(self,sound_file):
-        #pygame.mixer.music.load(sound_file)
-        #pygame.mixer.music.play()
-        pass
-    def pauseSound(self):
-        #pygame.mixer.music.pause()
-        pass
-    def unpauseSound(self):
-        #pygame.mixer.music.unpause()
-        pass
-    def stopSound(self):
-        #pygame.mixer.music.stop()
-        pass
-    def quitPygame(self):
-        #pygame.mixer.quit()
-        pass
     def home(self):
         self.viewBands()
         inp = input('>>')
         if(inp == 'exit'):
-            #self.quitPygame()
             exit()
         try:
             self.selectionBand(int(inp))
@@ -43,7 +25,12 @@ class SAM:
             self.home()
     def viewBands(self):
         self.clear()
-        print('SAM')
+        print("""███████╗ █████╗ ███╗   ███╗
+██╔════╝██╔══██╗████╗ ████║
+███████╗███████║██╔████╔██║
+╚════██║██╔══██║██║╚██╔╝██║
+███████║██║  ██║██║ ╚═╝ ██║
+╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝""")
         self.__init__()
         for key in self.bands:
             print(key,self.bands[key])
@@ -69,28 +56,10 @@ class SAM:
         if(selection=='back'):
             self.home()
         try:
-            self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
-            #self.playSound(os.getcwd()+'/songs/'+band+'/'+songs[int(selection)])
-            #self.control(songs[int(selection)])
+            for e in range(int(selection),len(songs)+1):
+                print(songs[e])
+                self.sound(os.getcwd()+'/songs/'+band+'/'+songs[e])
             self.songsFrom(band)
         except:
             self.songsFrom(band)
-    def control(self,name):
-        print(name)
-        command = input('>> ')
-        if command == "p":
-            self.pauseSound()
-            self.control(name)
-        elif command == "c":
-            self.unpauseSound()
-            self.control(name)
-        elif command == "s":
-            self.stopSound()
-            self.home()
-        elif command == "e":
-            self.stopSound()
-            self.quitPygame()
-            exit()
-        else:
-            self.control(name)
 
