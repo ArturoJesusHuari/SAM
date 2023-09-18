@@ -55,8 +55,13 @@ class SAM:
         selection = input('>> ')
         if(selection=='back'):
             self.home()
+        elif(selection=='all'):
+            for song in songs:
+                print(song)
+                self.sound(os.getcwd()+'/songs/'+band+'/'+song)
+            self.songsFrom(band)
         try:
-            for e in list([selection]):
+            for e in list(selection.split(',')):
                 print(songs[int(e)])
                 self.sound(os.getcwd()+'/songs/'+band+'/'+songs[int(e)])
             self.songsFrom(band)
