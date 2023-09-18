@@ -35,7 +35,7 @@ class SAM:
 ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝"""+Fore.RESET)
         self.__init__()
         for key in self.bands:
-            print(Fore.GREEN+key,self.bands[key]+Fore.RESET)
+            print(Fore.GREEN+str(key)+' '+self.bands[key]+Fore.RESET)
     def selectionBand(self,selection):
         try:
             self.songsFrom(self.bands[selection])
@@ -46,7 +46,7 @@ class SAM:
         songs = dict(enumerate(os.listdir(os.getcwd()+'/songs/'+band+'/'),start=1))
         for key in songs:
             name, ext = os.path.splitext(songs[key])
-            print(Fore.YELLOW+key,songs[key].replace('.mp3','')+Fore.RESET)
+            print(Fore.YELLOW+str(key)+' '+songs[key].replace('.mp3','')+Fore.RESET)
         self.selectionSong(band,songs)
     def sound(self,path):
         try:
