@@ -6,7 +6,6 @@ from os import system
 import pathlib
 from pydub import AudioSegment
 from colorama import Fore
-import pyautogui
 def Direction(autor):
     return str(pathlib.Path(__file__).parent.absolute()).replace('funciones','songs')+'/'+autor+'/'
 def YT(link):
