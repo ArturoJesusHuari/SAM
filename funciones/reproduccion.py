@@ -27,7 +27,7 @@ class SAM:
             self.home()
     def viewBands(self):
         self.clear()
-        print(Fore.CYAN+"""███████╗ █████╗ ███╗   ███╗
+        print(Fore.MAGENTA+"""███████╗ █████╗ ███╗   ███╗
 ██╔════╝██╔══██╗████╗ ████║
 ███████╗███████║██╔████╔██║
 ╚════██║██╔══██║██║╚██╔╝██║
