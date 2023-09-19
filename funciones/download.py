@@ -21,7 +21,7 @@ def Download(link):
         except pytube.exceptions.VideoUnavailable:
             pass
 def formatAuthor(string):
-    entry = input("The author is "+string.split('/')[-1]+" :")
+    entry = input("The author is "+string.split('/')[-2]+" :")
     if(entry==''):
         return string
     else:
