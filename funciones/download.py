@@ -21,16 +21,14 @@ def Download(link):
         except pytube.exceptions.VideoUnavailable:
             pass
 def formatAuthor(string):
-    entry = input("The song's name is "+string+" :")
+    entry = input("The author is "+string.split('/')[-1]+" :")
     if(entry==''):
         return string
     else:
-        return entry
+        return string.replace(string.split('/')[-1],entry)
 def formatAudioClip(string):
-    songName = string.split('/')[-1]
-    entry = input("The song's name is "+songName+" :")
+    entry = input("The song's name is "+string.split('/')[-1]+" :")
     if(entry==''):
-        return songName
+        return string
     else:
-        return entry
-    
+        return string.replace(string.split('/')[-1],entry+'.mp3')
